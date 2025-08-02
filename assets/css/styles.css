@@ -422,11 +422,15 @@ body {
 }
 
 .project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   background-color: #f8f9fa;
   border-radius: var(--border-radius);
   padding: 20px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
   transition: var(--transition);
+  height: 100%;
 }
 
 .project-card:hover {
@@ -452,6 +456,14 @@ body {
   font-size: 14px;
   margin-bottom: 15px;
   line-height: 1.6;
+  flex-grow: 0;
+  flex-shrink: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-links {
+  margin-top: auto;
 }
 
 .project-links a {
@@ -514,6 +526,139 @@ body {
   }
   to {
     width: 100%;
+  }
+}
+
+/* Dark Mode Toggle Improvements */
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px;
+  background-color: #2c3e50;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode-toggle:active {
+  transform: scale(0.95);
+}
+
+.dark-mode-toggle i {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.dark-mode-toggle:hover i {
+  transform: rotate(20deg);
+}
+
+/* Tooltip untuk toggle */
+.dark-mode-toggle::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+  font-family: inherit;
+}
+
+.dark-mode-toggle::after {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid rgba(0, 0, 0, 0.8);
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  margin-right: 4px;
+}
+
+.dark-mode-toggle:hover::before,
+.dark-mode-toggle:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Floating notification */
+.theme-notification {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  z-index: 101;
+  opacity: 0;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.theme-notification.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.theme-notification i {
+  font-size: 16px;
+  color: white !important;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .dark-mode-toggle {
+    top: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+  }
+
+  .dark-mode-toggle::before {
+    display: none;
+  }
+
+  .dark-mode-toggle::after {
+    display: none;
   }
 }
 
