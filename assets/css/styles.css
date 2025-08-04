@@ -707,3 +707,15 @@ body {
     font-size: 16px;
   }
 }
+
+/* Tambahkan ini di bagian bawah file */
+[data-aos] {
+  transition-property: opacity, transform !important;
+  transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1) !important;
+  /* cubic-bezier ini lebih smooth dari ease-in-out */
+}
+
+/* Jika ingin lebih halus lagi, bisa tambahkan: */
+[data-aos] {
+  will-change: opacity, transform;
+}

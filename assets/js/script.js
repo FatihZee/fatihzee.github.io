@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   AOS.init({
     duration: 800,
-    easing: "ease-in-out",
+    easing: "cubic-bezier(0.77, 0, 0.175, 1)",
     once: true,
     mirror: false,
   });
