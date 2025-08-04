@@ -482,6 +482,7 @@ body {
 
 .project-links i {
   margin-right: 5px;
+  color: inherit;
 }
 
 /* Footer */

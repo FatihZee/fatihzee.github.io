@@ -196,6 +196,11 @@ document.addEventListener("DOMContentLoaded", function () {
       )
       .forEach((el) => (el.style.color = "#64b5f6"));
 
+    // Tambahkan styling khusus untuk icon dalam project links
+    document
+      .querySelectorAll(".project-links a i")
+      .forEach((icon) => (icon.style.color = "#64b5f6"));
+
     document.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach((h) => {
       if (!h.closest(".sidebar")) h.style.color = "#e6e6e6";
     });
@@ -281,6 +286,11 @@ document.addEventListener("DOMContentLoaded", function () {
     document
       .querySelectorAll(".project-links a")
       .forEach((el) => (el.style.color = "#2c3e50"));
+
+    // Pastikan icon juga kembali ke warna default
+    document
+      .querySelectorAll(".project-links a i")
+      .forEach((icon) => (icon.style.color = "inherit"));
 
     document.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach((h) => {
       if (!h.closest(".sidebar")) h.style.color = "";
